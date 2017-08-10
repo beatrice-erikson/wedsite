@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'photos/index'
+
+  get 'photos/show'
+
   get 'info/location'
 
   get 'info/ceremony'

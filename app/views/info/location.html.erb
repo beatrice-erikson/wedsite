@@ -1,2 +1,50 @@
-<h1>Info#location</h1>
-<p>Find me in app/views/info/location.html.erb</p>
+<script src="//maps.google.com/maps/api/js?key=AIzaSyA-Rl1dC-Tf-Cd8WiDu5jTKNrEPR2SfIQY"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
+
+<p>We're getting married in the woods of South China Maine, at the summer camp that Justice attended as a child. It's an old rustic Quaker Camp, so come packed for camp!</p>
+
+You might want to bring:
+<ul>
+	<li>Shoes you can (want to?) run around in</li>
+	<li>Bug spray and sunscreen</li>
+	<li>Your favorite songbook (Rise Up Singing?)</li>
+	<li>A bathing suit</li>
+	<li>Your spare canoe (you have one of those, right?)</li>
+	<li>A change of comfortable clothing</li>
+</ul>
+	
+<p>And if you're staying over we'll contact you about what you need to bring to sleep in a cabin!</p>
+
+<p>For a map and pictures of the campgrounds, you can take a look at <%= link_to "this page", "http://friendscamp.org/map-of-camp/", target: "_blank" %> on their website. </p>
+
+<h3>Driving Directions</h3>
+
+<p><b>To Friends Camp from Boston, Portland and points south:</b>
+Drive north from Portland on Interstate 295 to Interstate 95. Look for the third Augusta exit (#113) across the Kennebec river bridge to Route 202 North and Route 3 East. Continue on for 14 miles to South China. Go through the light in South China and take the next left onto Route 202 (Lakeview Drive). The Friends Camp driveway is 3.5 miles on the right. The address is 729 Lakeview Drive.</p>
+
+<p><b>To Friends Camp from Canada, Bangor and points north:</b>
+If you are traveling south on I95 take Exit 127 onto Route 137 (Kennedy Memorial Drive) into Waterville. Go about a mile and half and turn right after you have crossed a small  bridge, just before the road curves. Travel 2.2 miles and turn right, then go 6.1 miles to light at China Village. Continue straight at the light; you are now on Route 202. Stay on Route 202 toward South China for 3.5 miles. (This part of Route 202 is also known as Lakeview Drive.) After you pass the China Middle School, Friends Camp is the third driveway on your left. The address is 729 Lakeview Drive.</p>
+
+<p><b>To Friends Camp from Ellsworth, Belfast and points east:</b>
+From the Route 1 traffic interchange in Belfast drive west on Route 3. Go approximately 32 miles from the coast to Route 202 North. Turn Right onto Route 202; the Friends Camp driveway is 3.5 miles from Route 3 on your right. The address is 729 Lakeview Drive.
+</p>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+	handler = Gmaps.build('Google');
+	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+	  markers = handler.addMarkers([
+		{
+		  "lat": 44.437021,
+		  "lng": -69.528125,
+		}
+	  ]);
+	  handler.bounds.extendWith(markers);
+	  handler.fitMapToBounds();
+	  handler.getMap().setZoom(7);
+	});
+</script>
