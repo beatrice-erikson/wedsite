@@ -9,7 +9,7 @@
     <% for invitee in @invitees %>
     <tr>
         <td><%= invitee.name %></td>
-        <td><%= invitee.email %></td>
+        <td><%= invitee.encrypted_email %></td>
         <td><%= invitee.is_attending? %></td>
         <td><%= button_to "Delete", rsvp_path(invitee.id), method: :delete %></td>
         <td><%= link_to_unless(invitee.has_rsvpd, "Send RSVP Email", email_path(invitee.id))%></td>
