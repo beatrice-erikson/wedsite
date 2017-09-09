@@ -1,0 +1,44 @@
+<table><tbody>
+    <tr>
+        <th>Name:</th>
+        <th>Email:</th>
+        <th>Attending?</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <% for invitee in @invitees %>
+    <tr>
+        <td><%= invitee.name %></td>
+        <td><%= invitee.email %></td>
+        <td><%= invitee.is_attending? %></td>
+        <td><%= button_to "Delete", rsvp_path(invitee.id), method: :delete %></td>
+        <td><%= link_to_unless(invitee.has_rsvpd, "Send RSVP Email", email_path(invitee.id))%></td>
+    </tr>
+    <% end %>
+</tbody></table>
+
+<%= form_for(@rsvp) do |f| %>
+    <% if @rsvp.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@model.errors.count, "error") %> prohibited this model from being saved:</h2>
+            <ul>
+                <% @model.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div class="field">
+        <%= f.label :encrypted_email, "Email" %>
+        <%= f.text_field :email %>
+    </div>
+    <%= f.hidden_field :has_rsvpd, :value => false %>
+    <%= f.hidden_field :is_attending, :value => nil %>
+    <div class = "action">
+        <%= f.submit %>
+    </div>
+<% end %>

@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215190917) do
+ActiveRecord::Schema.define(version: 20170824183018) do
 
   create_table "rsvps", force: :cascade do |t|
     t.string   "name"
     t.boolean  "has_rsvpd"
     t.boolean  "is_attending"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "encrypted_email"
+    t.string   "encrypted_email_iv"
   end
 
 end

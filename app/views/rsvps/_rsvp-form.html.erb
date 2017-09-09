@@ -1,0 +1,16 @@
+You haven't rsvpd yet!
+
+<%= form_for @user do |f| %>
+	<p>
+		Can you attend our wedding?
+		<br />
+		<%= f.radio_button :is_attending, 'true' %> 
+		<%= f.label :is_attending, 'Yes!', :value => 'true' %>
+		<%= f.radio_button :is_attending, 'false' %>
+		<%= f.label :is_attending, 'No', :value => 'false' %>
+		<%= f.hidden_field :has_rsvpd, value: 'true' %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

@@ -1,2 +1,6 @@
 <div id="corner"><%= image_tag("https://s3.amazonaws.com/wedsite-files/images/topleft-blue-flowers.png") %></div>
 <%= render "shared/nav" %>
+<% if session[:current] %>
+    <br />
+    <%= link_to 'Log out', session_path('logout'), method: :delete %>
+<% end %>
