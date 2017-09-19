@@ -1,16 +1,74 @@
 You haven't rsvpd yet!
 
-<%= form_for @user do |f| %>
+<%= simple_form_for @user do |f| %>
 	<p>
 		Can you attend our wedding?
 		<br />
-		<%= f.radio_button :is_attending, 'true' %> 
-		<%= f.label :is_attending, 'Yes!', :value => 'true' %>
-		<%= f.radio_button :is_attending, 'false' %>
-		<%= f.label :is_attending, 'No', :value => 'false' %>
-		<%= f.hidden_field :has_rsvpd, value: 'true' %>
+		<%= f.radio_button :response, :yes %> 
+		<%= f.label :response, 'Yes!', value: :yes %>
+		<%= f.radio_button :response, :no %>
+		<%= f.label :response, 'No', value: :no %>
+		<%= f.radio_button :response, :undecided %>
+		<%= f.label :response, 'Maybe', value: :undecided %>
 	</p>
 	<p>
+		Do you have any dietary restrictions?
+		<br />
+		(Please include severe food allergies under accessibility needs instead)
+		<br />
+		<div id = "diets">
+			<% f.simple_fields_for :dietary_needs do |dietary_need| %>
+				<%= render 'dietary_need_fields', f: dietary_need %>
+			<% end %>
+			<%= link_to_add_association 'add a restriction', f, :dietary_needs %>
+		</div>
+		<% unless @user.diets.empty? %>
+			Dietary needs already added:
+			<ul>
+			<% @user.diets.each do |d| %>
+				<li><%= d.name %></li>
+			<% end %>
+			</ul>
+		<% end %>
+	</p>
+	<p>
+		Do you have any accessibility needs?
+		<br />
+		<div id = "accessibilities">
+			<% f.simple_fields_for :access_needs do |access_need| %>
+				<%= render 'access_need_fields', f: access_need %>
+			<% end %>
+			<%= link_to_add_association 'add an accessibility need', f, :access_needs %>
+		</div>
+		<% unless @user.accessibilities.empty? %>
+			Accessibility needs already added:
+			<ul>
+			<% @user.accessibilities.each do |a| %>
+				<li><%= a.name %></li>
+			<% end %>
+			</ul>
+		<% end %>
+	</p>
+	<p>
+	Do you have any skills you want to share with us?
+	<br />
+	<div id = "skills">
+		<% f.simple_fields_for :rsvp_skills do |rsvp_skill| %>
+			<%= render 'rsvp_skill_fields', f: rsvp_skill %>
+		<% end %>
+		<%= link_to_add_association 'add a skill', f, :rsvp_skills %>
+	</div>
+	<% unless @user.skills.empty? %>
+		Skills already added:
+		<ul>
+		<% @user.skills.each do |s| %>
+			<li><%= s.name %></li>
+		<% end %>
+		</ul>
+	<% end %>
+	</p>
+	<p>
+		<%= f.hidden_field :has_rsvpd, value: 'true' %>
 		<%= f.submit %>
 	</p>
 <% end %>

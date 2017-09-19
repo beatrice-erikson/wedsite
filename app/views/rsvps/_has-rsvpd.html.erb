@@ -1,15 +1,51 @@
 You've rsvpd!
 <br />
 <br />
-It looks like you said that
-<% if @user.is_attending %>
-can
-<% else %>
-can't
+<p>
+	It looks like you said that
+	<% if @user.Undecided? %>
+		you're not sure if you can
+	<% elsif not @user.is_attending %>
+		you can't
+	<% else %>
+		you can
+	<% end %>
+		attend.
+</p>
+<% unless @user.diets.empty? %>
+<p>
+	You've listed the following dietary needs:
+	<table>
+	<% @user.dietary_needs.each do |d| %>
+		<tr><td><%= d.diet.name %></td><td><%= button_to "Delete", dietary_need_path(d.id), method: :delete %></td></tr>
+	<% end %>
+	</table>
+</p>
 <% end %>
-attend.
-<br />
-If you need to change it, click the button below, but please email us at EMAIL if it's been more than a day since your previous rsvp.
+<% unless @user.accessibilities.empty? %>
+<p>
+	You've listed the following accessibility needs:
+	<table>
+	<% @user.access_needs.each do |a| %>
+		<tr><td><%= a.accessibility.name %></td><td><%= button_to "Delete", access_need_path(a.id), method: :delete %></td></tr>
+	<% end %>
+	</table>
+</p>
+<% end %>
+<% unless @user.skills.empty? %>
+<p>
+	You've listed the following skills:
+	<table>
+	<% @user.rsvp_skills.each do |s| %>
+		<tr><td><%= s.skill.name %></td><td><%= button_to "Delete", rsvp_skill_path(s.id), method: :delete %></td></tr>
+	<% end %>
+	</table>
+</p>
+<% end %>
+<p>
+	If you need to change your rsvp, click the button below.
+	If you're changing whether or not you're attending, please email us at <%= ENV["WEDDING_EMAIL"] %> if it's been more than a day since your previous rsvp.
+</p>
 <%= form_for @user do |f| %>
 	<%= f.hidden_field :has_rsvpd, value: 'false' %>
 	<%= f.submit %>

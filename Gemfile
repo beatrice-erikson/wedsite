@@ -9,8 +9,9 @@ gem "figaro"
 gem "attr_encrypted"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
-gem 'pg'
 
+gem 'cocoon'
+gem 'simple_form'
 gem 'gmaps4rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -47,6 +48,9 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+end
+group :production do
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

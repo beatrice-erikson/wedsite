@@ -1,0 +1,8 @@
+<div class="nested-fields">
+<div class="rsvp-skill-fields">
+    <div class="skills_from_list">
+        <%= f.association :skill, collection: Skill.all.order('name').reject {|a| @user.skills.include?(skill)}, prompt: 'Choose an existing skill' %>
+    </div>
+    <%= link_to_add_association 'or create a new one', f, :skill %>
+    <%= link_to_remove_association "remove skill", f %>
+</div></div>

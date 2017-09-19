@@ -1,0 +1,8 @@
+<div class="nested-fields">
+<div class="access-need-fields">
+    <div class="accessibility_from_list">
+        <%= f.association :accessibility, collection: Accessibility.all.order('name').reject {|a| @user.accessibilities.include?(a)}, prompt: 'Choose an existing accessibility need' %>
+    </div>
+    <%= link_to_add_association 'or create a new one', f, :accessibility %>
+    <%= link_to_remove_association "remove accessibility need", f %>
+</div></div>

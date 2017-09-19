@@ -2,7 +2,8 @@
     <tr>
         <th>Name:</th>
         <th>Email:</th>
-        <th>Attending?</th>
+        <th>Response</th>
+        <th>In wedding party?</th>
         <th></th>
         <th></th>
     </tr>
@@ -10,7 +11,8 @@
     <tr>
         <td><%= invitee.name %></td>
         <td><%= invitee.email %></td>
-        <td><%= invitee.is_attending? %></td>
+        <td><%= invitee.response %></td>
+        <td><%= invitee.wedding_party ? "Yes" : "No" %></td>
         <td><%= button_to "Delete", rsvp_path(invitee.id), method: :delete %></td>
         <td><%= link_to_unless(invitee.has_rsvpd, "Send RSVP Email", email_path(invitee.id))%></td>
     </tr>
@@ -28,6 +30,7 @@
             </ul>
         </div>
     <% end %>
+    <br />
     <div class="field">
         <%= f.label :name %>
         <%= f.text_field :name %>
@@ -36,8 +39,15 @@
         <%= f.label :encrypted_email, "Email" %>
         <%= f.text_field :email %>
     </div>
-    <%= f.hidden_field :has_rsvpd, :value => false %>
-    <%= f.hidden_field :is_attending, :value => nil %>
+    <div class="field">
+        Is this person in the wedding party?<br />
+        <%= f.radio_button :wedding_party, true %>
+        <%= f.label :wedding_party, 'Yes', value: true %>
+        <%= f.radio_button :wedding_party, false, checked: true %>
+        <%= f.label :wedding_party, 'No', value: false %>
+    </div>
+    <%= f.hidden_field :has_rsvpd, value: false %>
+    <%= f.hidden_field :response, value: :na %>
     <div class = "action">
         <%= f.submit %>
     </div>

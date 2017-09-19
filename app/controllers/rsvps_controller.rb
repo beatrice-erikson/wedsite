@@ -19,6 +19,7 @@ class RsvpsController < ApplicationController
 	def create
 		authentication_required!
 		@rsvp = Rsvp.new(rsvp_params)
+		@rsvp.na!
 		if @rsvp.save
 			redirect_to rsvps_admin_path
 		else
@@ -37,6 +38,12 @@ class RsvpsController < ApplicationController
 	end
 	private
 		def rsvp_params
-			params.require(:rsvp).permit(:name, :has_rsvpd, :is_attending, :email)
+			params.require(:rsvp).permit(:name, :has_rsvpd, :response, :email, :wedding_party,
+					dietary_needs_attributes: [:id, :_destroy, :diet_id,
+						diet_attributes: [:id, :_destroy, :name]],
+					access_needs_attributes: [:id, :_destroy, :accessibility_id,
+						accessibility_attributes: [:id, :_destroy, :name]],
+					rsvp_skills_attributes: [:id, :_destroy, :skill_id,
+						skill_attributes: [:id, :_destroy, :name]])
 		end
 end

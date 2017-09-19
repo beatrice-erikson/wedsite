@@ -1,0 +1,8 @@
+<div class="nested-fields">
+<div class="dietary-need-fields">
+    <div class="diet_from_list">
+        <%= f.association :diet, collection: Diet.all.order('name').reject {|diet| @user.diets.include?(diet)}, prompt: 'Choose an existing restriction' %>
+    </div>
+    <%= link_to_add_association 'or create a new one', f, :diet %>
+    <%= link_to_remove_association "remove restriction", f %>
+</div></div>
