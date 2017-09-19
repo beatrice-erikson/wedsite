@@ -19,7 +19,6 @@ class RsvpsController < ApplicationController
 	def create
 		authentication_required!
 		@rsvp = Rsvp.new(rsvp_params)
-		@rsvp.na!
 		if @rsvp.save
 			redirect_to rsvps_admin_path
 		else
