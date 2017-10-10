@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :rsvp_skills, only: :destroy
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get 'flappy_bird', to: 'welcome#flappy_bird'
 
   root 'welcome#index'
 end
