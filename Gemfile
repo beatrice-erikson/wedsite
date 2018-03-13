@@ -50,7 +50,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.20'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
