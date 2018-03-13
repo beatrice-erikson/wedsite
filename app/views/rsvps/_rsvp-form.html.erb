@@ -4,13 +4,40 @@ You haven't rsvpd yet!
 	<p>
 		Can you attend our wedding?
 		<br />
-		<%= f.radio_button :response, :Yes %> 
-		<%= f.label :response, 'Yes!', value: :Yes %>
-		<%= f.radio_button :response, :No %>
-		<%= f.label :response, 'No', value: :No %>
-		<%= f.radio_button :response, :Undecided %>
-		<%= f.label :response, 'Maybe', value: :Undecided %>
+		<label class="box">
+			<%= f.radio_button :response, :Yes %> 
+			<%= f.label :response, 'Yes!', value: :Yes %>
+			<span class="radio mark"></span>
+		</label>
+		<label class="box">
+			<%= f.radio_button :response, :No %>
+			<%= f.label :response, 'No', value: :No %>
+			<span class="radio mark"></span>
+		</label>
+		<label class="box">
+			<%= f.radio_button :response, :Undecided %>
+			<%= f.label :response, 'Maybe', value: :Undecided %>
+			<span class="radio mark"></span>
 	</p>
+	<p>
+		Is there anyone else you want to bring?
+		Children are welcome as long as you let us know; if you want to bring a significant other, reach out to us and we'll get back to you on if we have the space.
+		<br />
+		<%= f.text_field :plusone %>
+	</p>
+	<p>
+		How far will you be travelling from, if you know?
+		<br />
+		<%= f.text_field :distance %>
+	</p>
+	<p>
+		Can you bring a dish to share for our potluck lunch after meeting for worship?
+		<br />
+		<label class="box">
+			<%= f.check_box :potluck %>
+			<%= f.label :potluck, 'Yes!' %>
+			<span class="check mark"></span>
+		</label>
 	<p>
 		Do you have any dietary restrictions?
 		<br />
@@ -67,6 +94,15 @@ You haven't rsvpd yet!
 		</ul>
 	<% end %>
 	</p>
+	<p>
+		Can you bring a canoe?
+		<br />
+		<label class="box">
+			<%= f.check_box :canoe %>
+			<%= f.label :canoe, 'Yes!' %>
+			<span class="check mark"></span>
+		</label>
+	<p>
 	<p>
 		<%= f.hidden_field :has_rsvpd, value: 'true' %>
 		<%= f.submit %>

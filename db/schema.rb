@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919184731) do
+ActiveRecord::Schema.define(version: 20180313193606) do
 
   create_table "access_needs", force: :cascade do |t|
     t.integer "rsvp_id"
@@ -52,6 +52,10 @@ ActiveRecord::Schema.define(version: 20170919184731) do
     t.boolean  "wedding_party"
     t.boolean  "emailed?"
     t.string   "skills"
+    t.string   "plusone"
+    t.string   "distance"
+    t.boolean  "potluck"
+    t.boolean  "canoe"
   end
 
   create_table "skills", force: :cascade do |t|

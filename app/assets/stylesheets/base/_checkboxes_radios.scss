@@ -1,0 +1,73 @@
+.box {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin: 12px;
+	cursor: pointer;
+	font-size: 15px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.box input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.mark {
+	position: absolute;
+	top: -5px;
+	left: 0;
+	height: 26px;
+	width: 26px;
+	background-color: $bg_color;
+	border: 2px solid $input_color;
+}
+
+.radio {
+	border-radius: 50%;
+}
+
+.box:hover input ~ .mark {
+	border: 2px solid $link_hov_color;
+}
+
+.box input:checked ~ .mark {
+    background-color: $input_color;
+}
+
+.mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.box input:checked ~ .mark:after {
+    display: block;
+}
+
+.box .mark:after {
+    border: solid $bg_color;
+}
+
+.box .check:after {
+	top: 5px;
+	left: 9px;
+    width: 5px;
+    height: 10px;
+	border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.box .radio:after {
+	top: 7px;
+	left: 7px;
+	width: 0px;
+	height: 0px;
+	border: 6px solid $bg_color;
+	border-radius: 50%;
+}

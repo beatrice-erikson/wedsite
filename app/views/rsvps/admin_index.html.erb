@@ -3,7 +3,11 @@
         <th>Name:</th>
         <th>Email:</th>
         <th>Response</th>
+        <th>Potluck?</th>
         <th>In wedding party?</th>
+        <th>Plus ones</th>
+        <th>Distance</th>
+        <th>Canoe?</th>
         <th></th>
         <th></th>
     </tr>
@@ -12,7 +16,11 @@
         <td><%= invitee.name %></td>
         <td><%= invitee.email %></td>
         <td><%= invitee.response %></td>
+        <td><%= invitee.potluck ? "Yes" : "No" %></td>
         <td><%= invitee.wedding_party ? "Yes" : "No" %></td>
+        <td><%= invitee.plusone %></td>
+        <td><%= invitee.distance %></td>
+        <td><%= invitee.canoe ? "Yes" : "No" %></td>
         <td><%= button_to "Delete", rsvp_path(invitee.id), method: :delete %></td>
         <td><%= link_to_unless(invitee.has_rsvpd, "Send RSVP Email", email_path(invitee.id))%></td>
     </tr>
