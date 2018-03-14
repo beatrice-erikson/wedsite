@@ -2,6 +2,7 @@ class Rsvp < ApplicationRecord
 	validates :name, :email, presence: true
 	attr_encrypted :email, key: ENV["EMAIL_KEY"]
 	enum response: [:NA, :Yes, :No, :Undecided]
+	enum needslodging: [:NA, :Yes, :No, :Unsure], _prefix: :lodging
 
 	has_many :dietary_needs
 	has_many :diets, through: :dietary_needs

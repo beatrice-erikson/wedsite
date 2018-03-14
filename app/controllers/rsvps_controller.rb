@@ -37,7 +37,7 @@ class RsvpsController < ApplicationController
 	end
 	private
 		def rsvp_params
-			params.require(:rsvp).permit(:name, :has_rsvpd, :response, :email, :wedding_party, :plusone, :distance, :potluck, :canoe,
+			params.require(:rsvp).permit(:name, :has_rsvpd, :response, :email, :wedding_party, :needslodging, :plusone, :distance, :potluck, :canoe,
 					dietary_needs_attributes: [:id, :_destroy, :diet_id,
 						diet_attributes: [:id, :_destroy, :name]],
 					access_needs_attributes: [:id, :_destroy, :accessibility_id,

@@ -18,6 +18,7 @@ You haven't rsvpd yet!
 			<%= f.radio_button :response, :Undecided %>
 			<%= f.label :response, 'Maybe', value: :Undecided %>
 			<span class="radio mark"></span>
+		</label>
 	</p>
 	<p>
 		Is there anyone else you want to bring?
@@ -29,6 +30,25 @@ You haven't rsvpd yet!
 		How far will you be travelling from, if you know?
 		<br />
 		<%= f.text_field :distance %>
+	</p>
+	<p>
+		Will you need a place to stay?
+		<br />
+		<label class="box">
+			<%= f.radio_button :needslodging, :Yes %> 
+			<%= f.label :needslodging, 'Yes', value: :Yes %>
+			<span class="radio mark"></span>
+		</label>
+		<label class="box">
+			<%= f.radio_button :needslodging, :No %>
+			<%= f.label :needslodging, 'No', value: :No %>
+			<span class="radio mark"></span>
+		</label>
+		<label class="box">
+			<%= f.radio_button :needslodging, :Unsure %>
+			<%= f.label :needslodging, 'Unsure', value: :Unsure %>
+			<span class="radio mark"></span>
+		</label>
 	</p>
 	<p>
 		Can you bring a dish to share for our potluck lunch after meeting for worship?
