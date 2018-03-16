@@ -2,6 +2,16 @@ h1 { margin: 0px; padding: 25px; font: $font_size * 4 $header_font_family; }
 
 h2 { font: $font_size * 2.5 $header_font_family; }
 
+h3 {
+	font-size: $font_size * 1.10;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+.question {
+	padding-bottom: 5px;
+}
+
 body {
 	margin: 0px;
 	padding: 0px;
