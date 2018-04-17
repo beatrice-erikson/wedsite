@@ -4,14 +4,23 @@
         <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
     </head>
   <body>
-    <h1>Hi <%= @person.first_name %>!</h1>
+    <%= image_tag("https://s3.amazonaws.com/wedsite-files/images/page01.jpg", style: "width:100%;height:auto;") %>
+    <%= link_to image_tag("https://s3.amazonaws.com/wedsite-files/images/page02.jpg", style: "width:100%;height:auto;"), info_location_url %>
+    <%= link_to image_tag("https://s3.amazonaws.com/wedsite-files/images/page03.jpg", style: "width:100%;height:auto;"), @rsvp_url %>
+    <h1>Dear <%= @person.first_name %>,</h1>
     <p>
-      You're recieving this email because we (Beatrice and Justice) are getting married soon, and we'd love to have you there.
+      Beatrice & Justice are getting married September 15th, 2018. Please join us!
     </p>
     <p>
-      You can access your rsvp at <%= link_to "this page", @rsvp_url %> on our website; please let us know if you can attend!
+      Friends Camp, South China, ME
     </p>
-    <p>The website has a lot of information about venue, the ceremony, what to bring, etc, so please take a look around</p>
+    <p>
+      <%= link_to "Map, Directions, More", info_location_url %>
+    </p>
+    <p>
+      <%= link_to "RSVP on our website", @rsvp_url %>
+    </p>
+    <p>You can change your response at any time, so please take a few minutes ASAP to give us a preliminary response. We look forward to hearing from you!</p>
     <p>With love,<br \>
       Beatrice Evelyn Corfman & Justice Lynn Erikson</p>
   </body>
