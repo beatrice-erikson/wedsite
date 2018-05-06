@@ -2,7 +2,7 @@ class RsvpsController < ApplicationController
 	def index
 	end
 	def show
-		@user = Rsvp.find_by(name: params[:name].humanize.titleize)
+		@user = Rsvp.find_by(name: params[:name])
 		redirect_to(root_url, :notice => 'Record not found') unless @user
 	end
 	def update
