@@ -6,6 +6,7 @@
         <th>Potluck?</th>
         <th>Needs Lodging?</th>
         <th>In wedding party?</th>
+        <th>Family invited?</th>
         <th>Plus ones</th>
         <th>Distance</th>
         <th>Canoe?</th>
@@ -20,6 +21,7 @@
         <td><%= invitee.potluck ? "Yes" : "No" %></td>
         <td><%= invitee.needslodging %></td>
         <td><%= invitee.wedding_party ? "Yes" : "No" %></td>
+        <td><%= invitee.family_invited ? "Yes" : "No" %></td>
         <td><%= invitee.plusone %></td>
         <td><%= invitee.distance %></td>
         <td><%= invitee.canoe ? "Yes" : "No" %></td>
@@ -55,6 +57,13 @@
         <%= f.label :wedding_party, 'Yes', value: true %>
         <%= f.radio_button :wedding_party, false, checked: true %>
         <%= f.label :wedding_party, 'No', value: false %>
+    </div>
+    <div class="field">
+        Is this person's family invited as an attached unit?<br />
+        <%= f.radio_button :family_invited, true %>
+        <%= f.label :family_invited, 'Yes', value: true %>
+        <%= f.radio_button :family_invited, false, checked: true %>
+        <%= f.label :family_invited, 'No', value: false %>
     </div>
     <%= f.hidden_field :has_rsvpd, value: false %>
     <%= f.hidden_field :response, value: :NA %>

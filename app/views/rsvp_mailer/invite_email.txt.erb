@@ -1,7 +1,12 @@
-Hi <%= @person.first_name %>!
-You're recieving this email because we (Beatrice and Justice) are getting married soon, and we'd love to have you there.
-You can access your rsvp at <%= @rsvp_url %>; please let us know if you can attend!
-The website has a lot of information about venue, the ceremony, what to bring, etc, so please take a look around</p>
+Dear <%= @person.first_name %>,
+Beatrice & Justice are getting married September 15th, 2018. Please join us!
+
+Friends Camp, South China, ME
+<%= link_to "Map, Directions, More", info_location_url %>
+
+<%= link_to "RSVP on our website", @rsvp_url %>
+
+You can change your response at any time, so please take a few minutes ASAP to give us a preliminary response. We look forward to hearing from you!
 
 With love,
-Beatrice Evelyn Corfman & Justice Lynn Erikson
+  Beatrice Evelyn Corfman & Justice Lynn Erikson
