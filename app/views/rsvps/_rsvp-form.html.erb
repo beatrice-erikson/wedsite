@@ -97,24 +97,6 @@ You haven't rsvpd yet!
 		<% end %>
 	</p>
 	<p>
-	Do you have any skills you want to share with us?
-	<br />
-	<div id = "skills">
-		<% f.simple_fields_for :rsvp_skills do |rsvp_skill| %>
-			<%= render 'rsvp_skill_fields', f: rsvp_skill %>
-		<% end %>
-		<%= link_to_add_association 'add a skill', f, :rsvp_skills %>
-	</div>
-	<% unless @user.skills.empty? %>
-		Skills already added:
-		<ul>
-		<% @user.skills.each do |s| %>
-			<li><%= s.name %></li>
-		<% end %>
-		</ul>
-	<% end %>
-	</p>
-	<p>
 		Can you bring a canoe?
 		<br />
 		<label class="box">
