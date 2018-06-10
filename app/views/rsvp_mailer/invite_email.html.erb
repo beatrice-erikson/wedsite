@@ -4,10 +4,11 @@
         <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
     </head>
   <body>
+  <h1>Dear <%= @person.first_name %>,</h1>
+    <p>We just wanted to remind you to RSVP for our wedding on our website. Here's the original email.</p>
     <%= image_tag("https://s3.amazonaws.com/wedsite-files/images/page01.jpg", style: "width:100%;height:auto;") %>
     <%= link_to image_tag("https://s3.amazonaws.com/wedsite-files/images/page02.jpg", style: "width:100%;height:auto;"), info_location_url %>
     <%= link_to image_tag("https://s3.amazonaws.com/wedsite-files/images/page03.jpg", style: "width:100%;height:auto;"), @rsvp_url %>
-    <h1>Dear <%= @person.first_name %>,</h1>
     <p>
       Beatrice & Justice are getting married September 15th, 2018. Please join us!
     </p>
